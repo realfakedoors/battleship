@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
+import './assets/custom.css';
+import './assets/reset.css';
+
 import Game from './components/Game';
 
 ReactDOM.render(
