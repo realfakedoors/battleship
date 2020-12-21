@@ -1,6 +1,6 @@
 import React from "react";
 
-const Ship = ({ player, length, type, column, row, orientation }) => {
+const Ship = ({ player, length, type, column, row, orientation, shipName }) => {
   const numberedColumn = () => {
     const columns = "ABCDEFGHIJ".split("");
     return (columns.findIndex((col) => col === column)) + 1;
@@ -19,14 +19,6 @@ const Ship = ({ player, length, type, column, row, orientation }) => {
   const transformText = {
     transform: `rotate(-90deg)`,
   };
-
-  function shipName(type) {
-    return type
-      .replace(/-/, " ")
-      .split(" ")
-      .map((str) => str[0].toUpperCase() + str.substr(1))
-      .join(" ");
-  }
 
   return (
     <div

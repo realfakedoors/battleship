@@ -4,59 +4,137 @@
 body {
   margin: 0;
   min-height: 100vh;
-  
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #aaa;
+}
+
+.game {
+  position: relative;
+
+  padding-top: 32px;
+}
+
+.ship,
+.display-rows,
+.display-columns,
+.player-name,
+.sunken-ship,
+.dialog,
+.new-game {
+  font-family: "Roboto Slab", serif;
+}
+
+.new-game,
+.dialog {
+  width: 500px;
+  margin: 20px auto 0;
   
-  background-color: #888;
-}
-
-.title,
-.ship {
-  font-family: 'Roboto Slab', serif;
-}
-
-.title {
-  font-size: 83px;
+  font-size: 27px;
   text-align: center;
-  color: #ddd;
+}
+
+.new-game-text,
+.username-fields {
+  margin-bottom: 14px;
+}
+
+.button {
+  width: 120px;
+  
+  margin-top: 20px;
+  
+  background-color: #bada55;
+}
+
+.board-container {
+  position: relative;
+  top: 15px;
+
+  width: 530px;
+  height: 530px;
+
+  margin: 0 auto 44px;
+}
+
+.player-name {
+  position: absolute;
+  left: 540px;
+
+  font-size: 54px;
+  line-height: 60px;
+  text-align: left;
+  color: #4dff4d;
+}
+
+.player-name,
+.ship,
+.sunken-ship {
+  text-shadow: 2px 2px #333;
 }
 
 .board {
   position: relative;
-  
-  width: 530px;
-  height: 530px;
-  
-  margin: 0 auto 10px;
-  
+
   display: grid;
   grid-template-rows: repeat(10, 50px);
   grid-template-columns: repeat(10, 50px);
   grid-gap: 2px;
-  
+
   background-color: gray;
   border: 5px solid gray;
 }
 
+.display-columns,
+.display-rows {
+  position: absolute;
+
+  display: flex;
+  justify-content: space-around;
+
+  font-size: 20px;
+}
+
+.display-columns {
+  top: -22px;
+  width: 526px;
+}
+
+.display-rows {
+  left: -24px;
+  height: 526px;
+
+  flex-direction: column;
+
+  text-align: right;
+}
+
 .square {
-  position: relative;
-  z-index: 1;
-  
   background-color: #ccc;
-  
+
   cursor: pointer;
+}
+
+.attack-result {
+  position: relative;
+  z-index: 3;
 }
 
 .ship {
   position: relative;
   z-index: 2;
-  
+
+  font-size: 20px;
+}
+
+.ship,
+.sunken-ship {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  font-size: 20px;
+
   text-align: center;
   color: white;
   border-radius: 10px;
@@ -64,32 +142,50 @@ body {
 
 .carrier {
   background-color: teal;
-  // grid-column: 1 / 6;
-  // grid-row: 1 / 1;
+  font-size: 36px;
 }
 
 .battleship {
   background-color: red;
-  // grid-column: 4 / 8;
-  // grid-row: 2 / 2;
+  font-size: 30px;
+}
+
+.destroyer,
+.submarine {
+  font-size: 24px;
 }
 
 .destroyer {
   background-color: #bada55;
-  // grid-column: 3 / 6;
-  // grid-row: 4 / 4;
 }
 
 .submarine {
   background-color: green;
-  // grid-column: 6 / 9;
-  // grid-row: 6 / 6;
 }
 
 .patrol-boat {
   background-color: orange;
-  // grid-column: 5 / 7;
-  // grid-row: 8 / 8;
-  
   font-size: 14px;
+}
+
+.display-sunken-ships {
+  position: absolute;
+  bottom: 0;
+  left: 540px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 26px;
+  color: red;
+}
+
+.sunken-ship {
+  height: 50px;
+  width: 150px;
+
+  margin-top: 4px;
+  
+  font-size: 24px;
 }
