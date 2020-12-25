@@ -7,7 +7,7 @@ const Square = ({
   boardNumber,
   attemptAttack,
   attackResult,
-}) => {
+}) => {  
   const placeSquare = {
     gridColumn: `${numberedColumn()} / span 1`,
     gridRow: `${row} / span 1`,

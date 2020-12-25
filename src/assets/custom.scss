@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #aaa;
+  background-color: #2e2d2a;
 }
 
 .game {
@@ -31,9 +31,17 @@ body {
 .dialog {
   width: 500px;
   margin: 20px auto 0;
-  
-  font-size: 27px;
+
+  font-size: 44px;
+  line-height: 56px;
   text-align: center;
+  color: #bdc9b7;
+}
+
+.dialog-display-icon {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 20px;
 }
 
 .new-game-text,
@@ -42,11 +50,17 @@ body {
 }
 
 .button {
-  width: 120px;
-  
+  width: 140px;
+
   margin-top: 20px;
-  
-  background-color: #bada55;
+
+  background-color: #688c57;
+  border-color: #506e3c;
+  box-shadow: 3px 4px black;
+
+  font-family: inherit;
+  font-size: 22px;
+  color: #bdc9b7;
 }
 
 .board-container {
@@ -66,7 +80,7 @@ body {
   font-size: 54px;
   line-height: 60px;
   text-align: left;
-  color: #4dff4d;
+  color: #4d8fb3;
 }
 
 .player-name,
@@ -83,8 +97,8 @@ body {
   grid-template-columns: repeat(10, 50px);
   grid-gap: 2px;
 
-  background-color: gray;
-  border: 5px solid gray;
+  background-color: #506e3c;
+  border: 5px solid #506e3c;
 }
 
 .display-columns,
@@ -100,6 +114,8 @@ body {
 .display-columns {
   top: -22px;
   width: 526px;
+
+  color: #bdc9b7;
 }
 
 .display-rows {
@@ -109,10 +125,12 @@ body {
   flex-direction: column;
 
   text-align: right;
+
+  color: #bdc9b7;
 }
 
 .square {
-  background-color: #ccc;
+  background-color: #bdc9b7;
 
   cursor: pointer;
 }
@@ -141,12 +159,12 @@ body {
 }
 
 .carrier {
-  background-color: teal;
+  background-color: #53777a;
   font-size: 36px;
 }
 
 .battleship {
-  background-color: red;
+  background-color: #542437;
   font-size: 30px;
 }
 
@@ -156,16 +174,18 @@ body {
 }
 
 .destroyer {
-  background-color: #bada55;
+  background-color: #c02942;
 }
 
 .submarine {
-  background-color: green;
+  background-color: #d95b43;
 }
 
 .patrol-boat {
-  background-color: orange;
-  font-size: 14px;
+  background-color: #ecd078;
+  font-size: 16px;
+  color: #2e2d2a;
+  text-shadow: none;
 }
 
 .display-sunken-ships {
@@ -186,6 +206,147 @@ body {
   width: 150px;
 
   margin-top: 4px;
-  
+
   font-size: 24px;
+}
+
+@media screen and (max-device-width: 768px) {
+  .board-container {
+    width: 420px;
+    height: 420px;
+  }
+  
+  .board {
+    grid-template-rows: repeat(10, 40px);
+    grid-template-columns: repeat(10, 40px);
+    grid-gap: 1px;
+  }
+  
+  .display-columns {
+    top: -22px;
+    width: 416px;
+  }
+
+  .display-rows {
+    left: -24px;
+    height: 416px;
+  }
+  
+  .player-name,
+  .display-sunken-ships {
+    left: 432px;
+  }
+  
+  .player-name {
+    font-size: 28px;
+    line-height: 33px;
+  }
+}
+
+@media screen and (max-device-width: 375px) {
+  body {
+    height: 100vh;
+    width: 100vw;
+    
+    overflow: none;
+  }
+  
+  .game {
+    padding-top: 0;
+  }
+  
+  .new-game,
+  .dialog {
+    width: 100vw;
+    height: 100vh;
+    
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dialog-display-icon {
+    margin-top: 22px;
+  }
+  
+  .board-container {
+    width: 320px;
+    height: 320px;
+    padding-top: 53px;
+    margin-bottom: 66px;
+  }
+  
+  .board {
+    grid-template-rows: repeat(10, 30px);
+    grid-template-columns: repeat(10, 30px);
+    grid-gap: 1px;
+  }
+  
+  .display-columns,
+  .display-rows {
+    font-size: 15px;
+  }
+  
+  .display-columns {
+    top: 30px;
+    width: 314px;
+  }
+
+  .display-rows {
+    left: -24px;
+    height: 314px;
+  }
+  
+  .player-name,
+  .display-sunken-ships {
+    left: 0;
+    top: -5px;
+  }
+  
+  .display-sunken-ships {
+    margin-top: 10px;
+    left: 90px;
+    
+    height: 20px;
+
+    flex-direction: row;
+    align-items: baseline;
+
+    font-size: 15px;
+  }
+  
+  .player-name {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  
+  .carrier {
+    font-size: 24px;
+  }
+  
+  .destroyer,
+  .submarine {
+    font-size: 15px;
+  }
+  
+  .battleship {
+    font-size: 20px;
+  }
+  
+  .patrol-boat {
+    font-size: 13px;
+  }
+  
+  .sunk-text {
+    display: none;
+  }
+  
+  .sunken-ship {
+    height: 14px;
+    width: 60px;
+
+    margin-top: 0;
+    margin-left: 4px;
+
+    font-size: 10px;
+  }
 }

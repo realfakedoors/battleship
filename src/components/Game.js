@@ -223,8 +223,8 @@ const Game = () => {
             Welcome to Battleship!<br />Enter your names:
           </p>
           <div className="username-fields">
-            <input type="text" placeholder={name1} id="name1-field"></input>
-            <input type="text" placeholder={name2} id="name2-field"></input>
+            <input type="text" placeholder={name1} id="name1-field" className="username-field"></input>
+            <input type="text" placeholder={name2} id="name2-field" className="username-field"></input>
           </div>
           <button className="button" onClick={() => {startGame()}}>Start Game</button>
         </div>
@@ -233,6 +233,7 @@ const Game = () => {
     case "Swap":
       let nextPlayer;
       let currentPlayer;
+      let resultIcon;
       let lastTurnMessage = "";
       
       if (currentTurn === 1){
@@ -243,11 +244,13 @@ const Game = () => {
         currentPlayer = name1;
       }
       if (lastAttack?.result){
-        lastTurnMessage = `${currentPlayer} attacked ${lastAttack.square}, resulting in a ${lastAttack.result}. `;
+        lastTurnMessage = `${currentPlayer} attacked ${lastAttack.square}, it's a ${lastAttack.result}! `;
+        resultIcon = process.env.PUBLIC_URL + "/icons/" + lastAttack.result + ".svg";
       }
       
       display = (
         <Dialog
+          displayIcon={resultIcon}
           displayText={lastTurnMessage + `Good luck, ${nextPlayer}! It's your turn.`}
           buttonText={"Ready!"}
           buttonAction={() => {setGameStatus("Gameplay")}}

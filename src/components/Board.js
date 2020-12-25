@@ -90,7 +90,7 @@ const Board = ({
         {boardState.ships.map(displayShip)}
       </div>
       <div className="display-sunken-ships">
-        {sunkenShips.length > 0 && "Sunk:"}
+        <span className="sunk-text">{sunkenShips.length > 0 && "Sunk:"}</span>
         {sunkenShips.map(displaySunkenShip)}
       </div>
     </div>

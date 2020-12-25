@@ -32,7 +32,7 @@ test("Players can only see one set of ships", async () => {
 
 test("Clicking an opponent's square results in a hit or a miss, then prompts the player to pass the device", async () => {
   fireEvent.click(await screen.findByTestId(/2A1$/));
-  expect(screen.getByText(/Player1 attacked A1, resulting in a/)).toBeDefined();
+  expect(screen.getByText(/Player1 attacked A1, it's a/)).toBeDefined();
   expect(screen.getByText(/Good luck, Player2! It's your turn./)).toBeDefined();
   
   fireEvent.click(screen.getByText('Ready!'));
